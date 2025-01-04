@@ -8,9 +8,13 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
+
 public class userTest {
     Faker faker;
     user  userPayload;
+    public static Logger logger;
 
     @BeforeClass
     public void generateTestData(){
@@ -24,6 +28,8 @@ public class userTest {
        userPayload.setEmail(faker.internet().safeEmailAddress());
        userPayload.setPassword(faker.internet().password(5,10));
        userPayload.setPhone(faker.phoneNumber().cellPhone());
+
+       logger = LogManager.getLogManager().getLogger("API Automation");
     }
 
     @Test(priority = 1)
@@ -33,7 +39,7 @@ public class userTest {
       response.then().log().all();
 
         Assert.assertEquals(response.getStatusCode(), 200);
-1
+        logger.info("Create user executed..");
     }
 
     @Test(priority = 2)
@@ -50,6 +56,8 @@ public class userTest {
      response.then().log().all();
 
      Assert.assertEquals(response.getStatusCode(), 200);
+
+     logger.info("Update user executed");
     }
 
     @Test(priority = 4)
@@ -57,6 +65,8 @@ public class userTest {
      Response response =  userEndPoints.deleteUser(this.userPayload.getUsername());
      response.then().log().all();
      Assert.assertEquals(response.getStatusCode(), 200);
+
+        logger.info("deleteUser user executed");
     }
 
 
