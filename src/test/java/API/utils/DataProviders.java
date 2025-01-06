@@ -13,8 +13,8 @@ public class DataProviders {
 
         String[][] userData = new String[ttlRowCount-1][ttlColCount];
 
-        for (int rowNo = 1; rowNo<=ttlRowCount; rowNo++){
-            for (int colNo = 1; colNo<= ttlColCount; colNo++){
+        for (int rowNo = 1; rowNo<ttlRowCount; rowNo++){
+            for (int colNo = 0; colNo<ttlColCount; colNo++){
                 userData[rowNo-1][colNo] = ReadExcelFile.getCellValue(fileName, "Sheet1", rowNo, colNo);
 
             }
@@ -29,6 +29,7 @@ public class DataProviders {
         int ttlRowCount = ReadExcelFile.getRowCount(fileName, "Sheet1");
 
         String[] userNamesData = new String[ttlRowCount-1];
+
         for (int rowNo=1; rowNo<ttlRowCount; rowNo++){
             userNamesData[rowNo-1] = ReadExcelFile.getCellValue(fileName, "Sheet1", rowNo,1);
         }
