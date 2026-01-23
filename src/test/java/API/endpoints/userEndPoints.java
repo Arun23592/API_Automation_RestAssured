@@ -32,7 +32,6 @@ public class userEndPoints {
         return response;
     }
 
-
     public static Response updateUser(String userName, user payload){
         Response response = given()
                 .accept(ContentType.JSON)
