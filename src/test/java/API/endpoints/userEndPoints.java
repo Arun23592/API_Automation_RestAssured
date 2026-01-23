@@ -21,7 +21,6 @@ public class userEndPoints {
                 return response;
     }
 
-
     public static Response getUser(String userName){
         Response response = given()
                 .accept(ContentType.JSON)
