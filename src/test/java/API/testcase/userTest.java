@@ -38,7 +38,7 @@ public class userTest {
       //log
       response.then().log().all();
 
-        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(response.getStatusCode(), 201);
         logger.info("Create user executed..");
     }
 
