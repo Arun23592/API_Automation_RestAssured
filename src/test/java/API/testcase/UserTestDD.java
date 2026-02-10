@@ -58,7 +58,6 @@ public class UserTestDD {
 
     }
 
-
     @Test(priority = 2, dataProvider = "userNamesData", dataProviderClass = DataProviders.class)
     public void testGetUser(String username){
 
